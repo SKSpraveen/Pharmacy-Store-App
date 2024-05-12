@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">	#2196F3</color>
+    <color name="addpagebackclr">#DADEEE</color>
+    <color name="savepagebackclr">#DADEEE</color>
+    <color name="txt2">#000000</color>
+    <color name="txt3">#000000</color>
+    <color name="txt4">#000000</color>
+    <color name="txt5">#000000</color>
+    <color name="delbtn">#2196F3</color>
+    <color name="backgrount" />
+    <color name="background1">#A2C7FD</color>
+    <color name="topic">#5E35FF</color>
+    <color name="update">#0019FF</color>
+
+</resources>

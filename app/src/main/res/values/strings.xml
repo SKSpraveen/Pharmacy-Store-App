@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Pharmacy</string>
+    <string name="txt1">" Add Medicine Details"</string>
+    <string name="ETxt1">Medicine Name</string>
+    <string name="ETxt2">Quantity</string>
+    <string name="ETxt3">Date</string>
+    <string name="btn1">Add</string>
+    <string name="add_medicine_details">Add Medicine Details</string>
+    <string name="todo">TODO</string>
+    <string name="btn2">Save</string>
+    <string name="txt2">Medicine Details</string>
+    <string name="txt3">  Medicine Name</string>
+    <string name="txt4">  Quantity</string>
+    <string name="txt5">  Date</string>
+    <string name="upbtn">Edit</string>
+    <string name="deibtn">Delete</string>
+    <string name="delbtn">D</string>
+</resources>
