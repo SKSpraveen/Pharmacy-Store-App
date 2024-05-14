@@ -1,2 +1,4 @@
 # Pharmacy-Store-App
-<img  alt="xxxxxxxxx"  src="C:/Users/ASUS/Downloads/app.jpg">
+
+![xxxxxxxxx](https://raw.githubusercontent.com/your-username/your-repository/main/app.jpg)
+
