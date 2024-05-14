@@ -19,9 +19,43 @@ class AddMedicineActivity : AppCompatActivity() {
 
         binding.btn2.setOnClickListener {
             val medicinename = binding.ETxt1.text.toString()
-            val quantity = binding.ETxt2.text.toString().toInt()
+            val quantityText = binding.ETxt2.text.toString()
             val date = binding.ETxt3.text.toString()
-            val price = binding.ETxt4.text.toString().toDouble()
+            val priceText = binding.ETxt4.text.toString()
+
+            // Check if any field is empty
+            if (medicinename.isEmpty() || quantityText.isEmpty() || date.isEmpty() || priceText.isEmpty()) {
+                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Validate quantity
+            val quantity = try {
+                quantityText.toInt()
+            } catch (e: NumberFormatException) {
+                Toast.makeText(this, "Please enter a valid quantity", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Validate price
+            val price = try {
+                priceText.toDouble()
+            } catch (e: NumberFormatException) {
+                Toast.makeText(this, "Please enter a valid price", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Quantity and price should be greater than zero
+            if (quantity <= 0) {
+                Toast.makeText(this, "Quantity should be greater than zero", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (price <= 0.0) {
+                Toast.makeText(this, "Price should be greater than zero", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // If all validations pass, proceed with saving the medicine
             val medicine = Medicine(0, medicinename, quantity, date, price)
             db.insertMedicine(medicine)
             finish()
