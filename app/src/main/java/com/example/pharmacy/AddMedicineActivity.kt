@@ -25,7 +25,7 @@ class AddMedicineActivity : AppCompatActivity() {
             val medicine = Medicine(0, medicinename, quantity, date, price)
             db.insertMedicine(medicine)
             finish()
-            Toast.makeText(this, "Medicine Saved", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Medicine successfully Saved", Toast.LENGTH_SHORT).show()
         }
     }
 }
