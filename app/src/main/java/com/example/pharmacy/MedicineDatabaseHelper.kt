@@ -15,11 +15,12 @@ class MedicineDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
         private const val COLUMN_MEDICINENAME = "medicinename"
         private const val COLUMN_QUANTITY = "quantity"
         private const val COLUMN_DATE = "date"
+        private const val COLUMN_PRICE = "price"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
         val createTableQuery =
-            "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY, $COLUMN_MEDICINENAME TEXT, $COLUMN_QUANTITY INTEGER, $COLUMN_DATE TEXT)"
+            "CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY, $COLUMN_MEDICINENAME TEXT, $COLUMN_QUANTITY INTEGER, $COLUMN_DATE TEXT,$COLUMN_PRICE DOUBLE)"
         db?.execSQL(createTableQuery)
     }
 
@@ -35,6 +36,7 @@ class MedicineDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
             put(COLUMN_MEDICINENAME, medicine.medicinename)
             put(COLUMN_QUANTITY, medicine.quantity)
             put(COLUMN_DATE, medicine.date)
+            put(COLUMN_PRICE, medicine.price)
         }
 
         db.insert(TABLE_NAME, null, values)
@@ -53,8 +55,9 @@ class MedicineDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
             val medicinename = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MEDICINENAME))
             val quantity = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_QUANTITY))
             val date = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DATE))
+            val price = cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN_PRICE))
 
-            val medicine = Medicine(id,medicinename,quantity,date)
+            val medicine = Medicine(id,medicinename,quantity,date,price)
             medicineList.add(medicine)
         }
 
@@ -69,6 +72,7 @@ class MedicineDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
             put(COLUMN_MEDICINENAME,medicine.medicinename)
             put(COLUMN_QUANTITY,medicine.quantity)
             put(COLUMN_DATE,medicine.date)
+            put(COLUMN_PRICE,medicine.price)
         }
         val whereClause = "$COLUMN_ID = ?"
         val whereArgs = arrayOf(medicine.id.toString())
@@ -86,10 +90,11 @@ class MedicineDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATAB
         val medicinename = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MEDICINENAME))
         val quantity = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_QUANTITY))
         val date = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DATE))
+        val price = cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN_PRICE))
 
         cursor.close()
         db.close()
-        return Medicine(id,medicinename,quantity,date)
+        return Medicine(id,medicinename,quantity,date,price)
     }
 
     fun deleteMedicine(medicineId: Int){

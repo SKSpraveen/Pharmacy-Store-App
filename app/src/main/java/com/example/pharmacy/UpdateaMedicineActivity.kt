@@ -42,15 +42,17 @@ class UpdateaMedicineActivity : AppCompatActivity() {
         binding.upETxt1.setText(medicine.medicinename)
         binding.upETxt2.setText(medicine.quantity.toString())
         binding.upETxt3.setText(medicine.date)
+        binding.upETxt4.setText(medicine.price.toString())
 
         // Set onClickListener for the update button
         binding.upbtn2.setOnClickListener {
             val newMedicineName = binding.upETxt1.text.toString()
             val newQuantity = binding.upETxt2.text.toString().toIntOrNull() ?: 0
             val newDate = binding.upETxt3.text.toString()
+            val newPrice = binding.upETxt4.text.toString().toDouble()
 
             // Create updated Medicine object
-            val updatedMedicine = Medicine(medicineId, newMedicineName, newQuantity, newDate)
+            val updatedMedicine = Medicine(medicineId, newMedicineName, newQuantity, newDate, newPrice)
 
             // Update medicine in the database
             db.updateMedicine(updatedMedicine)

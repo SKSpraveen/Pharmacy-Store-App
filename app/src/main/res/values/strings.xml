@@ -15,4 +15,10 @@
     <string name="upbtn">Edit</string>
     <string name="deibtn">Delete</string>
     <string name="delbtn">D</string>
+    <string name="ETxt4">Unit Price</string>
+    <string name="medicine_name_format">Medicine Name : %s</string>
+    <string name="quantity_format">Quantity : %d</string>
+    <string name="date_format">Date : %s</string>
+    <string name="price_format">Price : %.2f</string>
+
 </resources>
