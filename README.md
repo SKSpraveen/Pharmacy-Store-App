@@ -4,4 +4,4 @@
 
 # About App :-
 
-This app is developed using kotlin in android studio. Create a automatic mediication list application utilizing SQLite and Room database.
+This app is developed using kotlin in android studio.  Create a automatic mediication list application utilizing SQLite and Room database.
